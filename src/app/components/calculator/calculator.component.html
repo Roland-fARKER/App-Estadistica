@@ -1,68 +1,67 @@
-<div>
-    <div style="display: flex; gap: 5px; align-items: center">
-      <h3 style="padding: 0; margin: 0">Cantidad de números:</h3>
+<div class="p-container" >
+  <div style="display: flex; gap: 5px; align-items: center">
+    <h3 style="padding: 0; margin: 0">Cantidad de números:</h3>
+    <p-inputNumber
+      [(ngModel)]="cantidadDeEntradas"
+      [showButtons]="true"
+      (ngModelChange)="generarEntradas()"
+      [min]="3"
+    />
+  </div>
+
+  <div
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      width: 100%;
+      padding: 5px;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <div *ngFor="let num of numeros; let i = index">
       <p-inputNumber
-        [(ngModel)]="cantidadDeEntradas"
+        [(ngModel)]="numeros[i]"
         [showButtons]="true"
-        (ngModelChange)="generarEntradas()"
-        [min]="3"
+        (ngModelChange)="alCambiarEntrada()"
       />
     </div>
-  
+  </div>
+
+  <p-button (onClick)="ordenarNumeros()" label="Ordenar y calcular"></p-button>
+
+  <div *ngIf="numerosOrdenados.length">
     <div
       style="
         display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
+        flex-direction: column;
         width: 100%;
-        padding: 5px;
         justify-content: center;
-        align-items: center;
       "
-    >
-      <div *ngFor="let num of numeros; let i = index">
-        <p-inputNumber
-          [(ngModel)]="numeros[i]"
-          [showButtons]="true"
-          (ngModelChange)="alCambiarEntrada()"
-        />
-      </div>
-    </div>
-  
-    <p-button (onClick)="ordenarNumeros()" label="Ordenar y calcular"></p-button>
-  
-    <div *ngIf="numerosOrdenados.length">
-      <div
-        style="
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          justify-content: center;
-        "
-      ></div>
-      <h3>Números ordenados:</h3>
-      <p>
-        <span *ngFor="let num of numerosOrdenados; let i = index">
-          {{ num }}<span *ngIf="i < numerosOrdenados.length - 1">, </span>
-        </span>
-      </p>
-  
-      <h3>Cálculos:</h3>
-      <p>Rango: {{ rango }}</p>
-      <p>Amplitud: {{ amplitud }}</p>
-      <p>Número de clases: {{ numeroDeClases }}</p>
-      <p>Media aritmética: {{ mediaAritmetica | number : "1.2-2" }}</p>
-      <p>Mediana: {{ mediana }}</p>
-      <p>Moda empírica: {{ modaEmpirica }}</p>
-      <p>Moda con fórmula delta: {{ modaConDelta | number : "1.2-2" }}</p>
-      <p>Varianza: {{ varianza | number : "1.2-2" }}</p>
-      <p>Desviacion standar: {{ desviacionEstandar | number : "1.2-2" }}</p>
-      <p>
-        Coeficiente de variacion: {{ coeficienteVariacion | number : "1.2-2" }}
-      </p>
-      <br>
-      <app-colunm-chart></app-colunm-chart>
-      <app-line-chart></app-line-chart>
-    </div>
+    ></div>
+    <h3>Números ordenados:</h3>
+    <p>
+      <span *ngFor="let num of numerosOrdenados; let i = index">
+        {{ num }}<span *ngIf="i < numerosOrdenados.length - 1">, </span>
+      </span>
+    </p>
+
+    <h3>Cálculos:</h3>
+    <p>Rango: {{ rango }}</p>
+    <p>Amplitud: {{ amplitud }}</p>
+    <p>Número de clases: {{ numeroDeClases }}</p>
+    <p>Media aritmética: {{ mediaAritmetica | number : "1.2-2" }}</p>
+    <p>Mediana: {{ mediana }}</p>
+    <p>Moda empírica: {{ modaEmpirica }}</p>
+    <p>Moda con fórmula delta: {{ modaConDelta | number : "1.2-2" }}</p>
+    <p>Varianza: {{ varianza | number : "1.2-2" }}</p>
+    <p>Desviacion standar: {{ desviacionEstandar | number : "1.2-2" }}</p>
+    <p>
+      Coeficiente de variacion: {{ coeficienteVariacion | number : "1.2-2" }}
+    </p>
+    <br />
+    <app-colunm-chart></app-colunm-chart>
+    <app-line-chart></app-line-chart>
   </div>
-  
+</div>
