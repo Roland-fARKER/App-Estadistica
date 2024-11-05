@@ -12,6 +12,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { ColunmChartComponent } from './components/colunm-chart/colunm-chart.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { OurstoryComponent } from './components/ourstory/ourstory.component';
+import { CalculatorComponent } from './components/calculator/calculator.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
     NavbarComponent,
     FooterComponent,
     ColunmChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    OurstoryComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,

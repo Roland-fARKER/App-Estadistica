@@ -1,0 +1,6 @@
+:host ::ng-deep .p-inputnumber.p-inputnumber-buttons-stacked .p-inputnumber-input {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 90px;
+    height: auto;
+}
